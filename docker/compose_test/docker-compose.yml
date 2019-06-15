@@ -1,0 +1,25 @@
+version: '2'
+services:
+  # app server 1
+  app01_mojo:
+    build: ./app01_mojo/build
+    image: omokawa/webapp01_mojo
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app01_mojo/src:/webapp/src
+    tty: true
+    stdin_open: true
+    privileged: true
+
+  # app server 2
+  app02_amon2:
+    build: ./app02_amon2/build
+    image: omokawa/webapp02_amon2
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./app02_amon2/src:/webapp/src
+    tty: true
+    stdin_open: true
+    privileged: true
